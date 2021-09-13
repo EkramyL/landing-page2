@@ -2,9 +2,9 @@
 
 ## Table of Contents
 
-- [Instructions](#Changes in HTML)
-- [Instructions](#Changes in CSS)
-- [Instructions](#Changes in Javascript)
+- # Changes in HTML
+- # Changes in CSS
+- # Changes in Javascript
 
 ## Changes in HTML
 
@@ -12,6 +12,8 @@
 - adding a refrence to the javascript before the end of body element.
 
 ## Changes in CSS
+
+- adding a class active to be add to the menu button when clicked.
 
 ## Changes in Javascript
 
