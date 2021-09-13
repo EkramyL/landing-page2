@@ -49,14 +49,15 @@
 */
 
 // Build menu 
-
+let liLink;
+let aLink;
 function makeNav(sections) {
     for (let i = 1; i < (sections + 1); i++) {
         let sectionTxt = `section ${i}`;
         let sectionLnk = `#section${i}`;
         const navUi = document.querySelector('#navbar__list');
-        let liLink = document.createElement('li');
-        let aLink = document.createElement('a');
+        liLink = document.createElement('li');
+        aLink = document.createElement('a');
         // aLink.setAttribute('href', sectionLnk);
         aLink.textContent = sectionTxt;
         aLink.classList.add('menu__link');
@@ -76,15 +77,20 @@ makeNav(4); // number of sections.
 const liLinks = document.querySelectorAll('.menu__link');
 let section;
 let sectionO;
-let liLink
+// let liLink
 for (let i = 1; i < 5; i++) {
     liLink = liLinks[(i - 1)]; // get every li
-    section = `section${i}`; // example #section1
-    sectionO = document.getElementById(section);
-    const rectSection = sectionO.getBoundingClientRect(); // each section boundries
+    
+    // const rectSection = sectionO.getBoundingClientRect(); // each section boundries
     liLink.addEventListener('click', function () {
-
-        window.scrollTo(rectSection.x, rectSection.y);
+        section = `section${i}`; // example #section1
+        sectionO = document.getElementById(section);
+        sectionO.scrollIntoView();
+        liLinks.forEach(function(liLink){
+            liLink.classList.remove('active');
+        });
+        this.classList.add('active');
+        // window.scrollTo(rectSection.x, rectSection.y);
     });
 }
 
@@ -99,7 +105,7 @@ document.addEventListener('scroll', function () {
         const sectionRect = sectionO.getBoundingClientRect();
         if (sectionRect.top >= 0 && sectionRect.bottom <= window.innerHeight) {
             
-            sectionO.classList.toggle('your-active-class');
+            sectionO.classList.add('your-active-class');
         } else {
             sectionO.classList.remove('your-active-class');
         }
