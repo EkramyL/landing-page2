@@ -2,12 +2,26 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+- [Instructions](#Changes in HTML)
+- [Instructions](#Changes in CSS)
+- [Instructions](#Changes in Javascript)
 
-## Instructions
+## Changes in HTML
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+- adding the fourth section.
+- adding a refrence to the javascript before the end of body element.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Changes in CSS
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Changes in Javascript
+
+- building the menu :
+  loop through the number of sections you want and rename each by name section followed
+  by it's number and adding it to the ui element (ui).
+
+- scrol to the clicked section :
+  get to every section through loop and add event listenner to the elements in menu
+  and scroll to the corespondent section when clicked.
+
+- make section active :
+  when each section get in the (viewport) add to it's class list the active class list.

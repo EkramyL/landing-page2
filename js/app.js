@@ -65,7 +65,7 @@ function makeNav(sections) {
     }
 }
 
-makeNav(4);
+makeNav(4); // number of sections.
 
 // Scroll to section on link click
 
@@ -88,17 +88,17 @@ for (let i = 1; i < 5; i++) {
     });
 }
 
-// Set sections as active
+// Set sections as active if in viewport
 
 document.addEventListener('scroll', function () {
     for (let i = 1; i < 5; i++) {
         section = `section${i}`;
-        console.log(section);
+        
         sectionO = document.getElementById(section);
-        console.log(sectionO);
+        
         const sectionRect = sectionO.getBoundingClientRect();
         if (sectionRect.top >= 0 && sectionRect.bottom <= window.innerHeight) {
-            console.log("aha");
+            
             sectionO.classList.toggle('your-active-class');
         } else {
             sectionO.classList.remove('your-active-class');
@@ -110,40 +110,11 @@ document.addEventListener('scroll', function () {
 });
 
 
-// const section = document.getElementById('section1');
-// const sectionRect = section.getBoundingClientRect();
-// console.log(sectionRect);
-
-
-// document.addEventListener('scroll', function () {
-// rectSec
-
-
-
-// });
 
 
 
 
 
 
-// const sections = document.querySelectorAll('section');
-// document.addEventListener('scroll', function () {
-
-    // for (let i = 1; i <= sections.length; i++) {
-    //     let section = sections[i];
-    //     let sectionO = document.getElementById(section);
-    //     const sectionRect = sectionO.getBoundingClientRect();
-    //     console.log(window.scrollY);
-    //     console.log(sectionRect.y);
-    //     if (window.scrollY <= sectionRect.y) {
-    //         console.log("true");
-    //         if (section.classList.contains('your-active-class')) {
-    //             section.classList.remove('your-active-class');
-    //         }
-
-    //     }
-    // }
-// });
 
 
