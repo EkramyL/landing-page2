@@ -17,7 +17,11 @@
  * Define Global Variables
  *
 */
-
+let liLink;
+let aLink;
+let section;
+let sectionO;
+let liLinks
 
 /**
  * End Global Variables
@@ -49,8 +53,7 @@
 */
 
 // Build menu 
-let liLink;
-let aLink;
+
 function makeNav(sections) {
     for (let i = 1; i < (sections + 1); i++) {
         let sectionTxt = `section ${i}`;
@@ -74,9 +77,8 @@ makeNav(4); // number of sections.
 
 
 
-const liLinks = document.querySelectorAll('.menu__link');
-let section;
-let sectionO;
+liLinks = document.querySelectorAll('.menu__link');
+
 // let liLink
 for (let i = 1; i < 5; i++) {
     liLink = liLinks[(i - 1)]; // get every li
