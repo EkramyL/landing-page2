@@ -17,11 +17,15 @@
  * Define Global Variables
  *
 */
-let liLink;
+// let liLink;
 let aLink;
 let section;
 let sectionO;
-let liLinks
+let liLinks;
+let liLink;
+let listItem;
+const navList = document.getElementById('navbar__list');
+
 
 /**
  * End Global Variables
@@ -52,24 +56,20 @@ let liLinks
  *
 */
 
-// Build menu 
+// Build menu Dynamically
 
-function makeNav(sections) {
-    for (let i = 1; i < (sections + 1); i++) {
-        let sectionTxt = `section ${i}`;
-        let sectionLnk = `#section${i}`;
-        const navUi = document.querySelector('#navbar__list');
-        liLink = document.createElement('li');
-        aLink = document.createElement('a');
-        // aLink.setAttribute('href', sectionLnk);
-        aLink.textContent = sectionTxt;
-        aLink.classList.add('menu__link');
-        liLink.appendChild(aLink);
-        navUi.appendChild(liLink);
-    }
+const sections = Array.from(document.getElementsByTagName('section'));
+for(section of sections){
+    let i = 1;
+    listItem = document.createElement('li');
+    navList.appendChild(listItem);
+    aLink = document.createElement('a');
+    // aLink.textContent = 'section ' 
+    aLink.classList.add('menu__link');
+    listItem.appendChild(aLink);
+    
 }
 
-makeNav(4); // number of sections.
 
 // Scroll to section on link click
 
@@ -79,27 +79,30 @@ makeNav(4); // number of sections.
 
 liLinks = document.querySelectorAll('.menu__link');
 
-// let liLink
-for (let i = 1; i < 5; i++) {
-    liLink = liLinks[(i - 1)]; // get every li
-    
-    // const rectSection = sectionO.getBoundingClientRect(); // each section boundries
-    liLink.addEventListener('click', function () {
-        section = `section${i}`; // example #section1
-        sectionO = document.getElementById(section);
-        sectionO.scrollIntoView();
-        liLinks.forEach(function(liLink){
-            liLink.classList.remove('active');
-        });
+
+
+for (let i = 1; i <= sections.length; i++){
+    liLink = liLinks[i-1]; // get every li
+    liLink.textContent = `section ${i}`;
+    section = `section${i}`; // example #section1
+    sectionO = document.getElementById(section);
+    const rectSection = sectionO.getBoundingClientRect();
+    liLink.addEventListener('click', function(){
+        window.scrollTo(rectSection.x, rectSection.y);
+        
+        for (let link of liLinks){
+            link.classList.remove('active');
+        }
         this.classList.add('active');
-        // window.scrollTo(rectSection.x, rectSection.y);
+
     });
+
 }
 
 // Set sections as active if in viewport
 
 document.addEventListener('scroll', function () {
-    for (let i = 1; i < 5; i++) {
+    for (let i = 1; i <= sections.length; i++) {
         section = `section${i}`;
         
         sectionO = document.getElementById(section);
